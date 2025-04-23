@@ -5,7 +5,25 @@ import "./style.css";
 import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
+import { getRandomIndex } from "./utils";
+
+const pExcusa = document.getElementById('excusa');
+
+const who = ['The dog', 'My grandma', 'The mailman', 'My bird'];
+const action = ['ate', 'peed', 'crushed', 'broke'];
+const what = ['my homework', 'my phone', 'the car'];
+const when = ['before the class', 'when I was sleeping', 'while I was exercising', 'during my lunch', 'while I was praying'];
+
 window.onload = function() {
-  //write your code here
-  console.log("Hello Rigo from the console!");
+  if(!pExcusa) return
+
+  pExcusa.innerHTML = generateExcusa();  
 };
+
+/**
+ * Genera una excusa utilizando los arrays definidos anteriormente who, action, what, when 
+ * @returns string Excusa generada
+ */
+function generateExcusa() {
+  return `${who.at(getRandomIndex(who))} ${action.at(getRandomIndex(action))} ${what.at(getRandomIndex(what))} ${when.at(getRandomIndex(when))}`;
+}
